@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Regional<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idregional</th>
+                <td>{{ entity.idRegional }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ entity.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+{{ form(delete_form) }}
+<div id="prueba2">
+        <ul class="record_actions">
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('regional_edit', { 'id': entity.idRegional }) }}" role="button">Editar</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('regional') }}" role="button">Regresar a la lista</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+        </ul>
+ </div>  
+      </div>
+{% endblock %}

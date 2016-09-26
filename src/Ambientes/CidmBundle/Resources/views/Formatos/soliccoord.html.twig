@@ -1,0 +1,17 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+ {% block title %}Confirmación solicitud{% endblock %}
+    {% block body %}
+        <br><br>
+        <div class="container">
+
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Confirmación<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+    <div id="prueba2">	        
+<h1>Solicitud respondida</h1>
+
+<a class="btn btn-lg btn-primary" id="boton" href="{{url('solic')}}" role="button">Regresar</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{url('crud')}}" role="button">Regresar a inicio</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+    </div>
+        </div>
+    {% endblock %}

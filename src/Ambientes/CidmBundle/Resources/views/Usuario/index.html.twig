@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Usuarios listado<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idusuario</th>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Email</th>
+            <!--    
+                <th>Tag</th>
+                <th>Foto</th>
+            -->
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('usuario_show', { 'id': entity.idUsuario }) }}">{{ entity.idUsuario }}</a></td>
+                <td>{{ entity.cedula }}</td>
+                <td>{{ entity.nombre }}</td>
+                <td>{{ entity.telefono }}</td>
+                <td>{{ entity.email }}</td>
+<!--                
+                <td>{{ entity.tag }}</td>
+                <td>{{ entity.foto }}</td>
+-->
+                <td>
+                <ul>
+<a class="btn btn-lg btn-primary" id="boton4" href="{{ path('usuario_show', { 'id': entity.idUsuario }) }}" role="button">Ver</a>                        
+<a class="btn btn-lg btn-primary" id="boton3" href="{{ path('usuario_edit', { 'id': entity.idUsuario }) }}" role="button">Editar</a>                        
+
+                </ul>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div id="prueba2">
+        <ul>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('usuario_new') }}" role="button">Crear un nuevo usuario</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+       </ul>
+ </div>                  
+  </div>
+    {% endblock %}

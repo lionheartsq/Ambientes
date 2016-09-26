@@ -1,0 +1,30 @@
+usuario:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:index" }
+
+usuario_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:show" }
+
+usuario_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:new" }
+
+usuario_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:create" }
+    requirements: { _method: post }
+
+usuario_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:edit" }
+
+usuario_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:update" }
+    requirements: { _method: post|put }
+
+usuario_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Usuario:delete" }
+    requirements: { _method: post|delete }

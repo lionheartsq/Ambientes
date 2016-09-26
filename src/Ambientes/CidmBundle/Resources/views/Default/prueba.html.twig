@@ -1,0 +1,32 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+
+{% block title %}Form prueba{% endblock %}
+    {% block body %}
+     <div class="container">
+         <h2>Formulario doble</h2>
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="row">
+        {% if is_granted("ROLE_USER") %} 
+        <form action='dualprueba' method='post'>  
+            <h2>Jornada</h2>
+            <div class="col-md-8">
+           <label>Descripcion</label><input class="input-group" type='text' name='descripcionjornada'><br>
+           <label>Hora inicial</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="inicio"><br>
+           <label>Hora final</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="fin"><br>
+           <h2>Estado</h2>
+           <label>Descripcion</label><input class="input-group" type='text' name='descripcionestado'><br>
+           <input class="btn btn-primary" type="submit" id="submit" name="submit" value="{{ 'Enviar' }}">
+         </div>
+        </form>
+        {% endif %}
+   
+    <div class="col-md-4"> 
+        <img src="{{ asset('/recursos/logo.png') }}" alt="logo" width="200"/>
+    </div>
+    </div><br>
+        <a class="btn btn-lg btn-primary" href="{{ path('crud') }}">Regresar al inicio</a>
+        <a class="btn btn-lg btn-primary" href="{{url('logout')}}" role="button">Salir</a>
+     </div>
+     </div>
+      {% endblock %}

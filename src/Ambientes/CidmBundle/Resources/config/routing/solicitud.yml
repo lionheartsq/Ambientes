@@ -1,0 +1,30 @@
+solicitud:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:index" }
+
+solicitud_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:show" }
+
+solicitud_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:new" }
+
+solicitud_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:create" }
+    requirements: { _method: post }
+
+solicitud_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:edit" }
+
+solicitud_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:update" }
+    requirements: { _method: post|put }
+
+solicitud_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Solicitud:delete" }
+    requirements: { _method: post|delete }

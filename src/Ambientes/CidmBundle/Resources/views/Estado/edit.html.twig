@@ -1,0 +1,19 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Editar Estado</h1></div>
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('estado') }}">
+            Regresar a la lista
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+  </div>
+{% endblock %}

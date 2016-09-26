@@ -1,0 +1,30 @@
+jornada:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:index" }
+
+jornada_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:show" }
+
+jornada_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:new" }
+
+jornada_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:create" }
+    requirements: { _method: post }
+
+jornada_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:edit" }
+
+jornada_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:update" }
+    requirements: { _method: post|put }
+
+jornada_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Jornada:delete" }
+    requirements: { _method: post|delete }

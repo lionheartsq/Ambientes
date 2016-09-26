@@ -1,0 +1,39 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Software
+ *
+ * @ORM\Table(name="software")
+ * @ORM\Entity
+ */
+class Software
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_SOFTWARE", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSoftware;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="CATEGORIA", type="string", length=250, nullable=true)
+     */
+    private $categoria;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOMBRE", type="string", length=250, nullable=true)
+     */
+    private $nombre;
+
+
+}

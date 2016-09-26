@@ -1,0 +1,30 @@
+tipoelemento:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:index" }
+
+tipoelemento_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:show" }
+
+tipoelemento_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:new" }
+
+tipoelemento_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:create" }
+    requirements: { _method: post }
+
+tipoelemento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:edit" }
+
+tipoelemento_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:update" }
+    requirements: { _method: post|put }
+
+tipoelemento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:TipoElemento:delete" }
+    requirements: { _method: post|delete }

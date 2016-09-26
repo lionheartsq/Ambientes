@@ -1,0 +1,49 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * CentroFormacion
+ *
+ * @ORM\Table(name="centro_formacion", indexes={@ORM\Index(name="FK_RELATIONSHIP_1", columns={"ID_REGIONAL"})})
+ * @ORM\Entity
+ */
+class CentroFormacion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_CENTRO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idCentro;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CODIGO", type="integer", nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=500, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Regional
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Regional")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_REGIONAL", referencedColumnName="ID_REGIONAL")
+     * })
+     */
+    private $idRegional;
+
+
+}

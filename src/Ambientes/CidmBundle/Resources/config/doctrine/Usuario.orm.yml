@@ -1,0 +1,81 @@
+Ambientes\CidmBundle\Entity\Usuario:
+    type: entity
+    table: usuario
+    indexes:
+        FK_RELATIONSHIP_8:
+            columns:
+                - ID_ESTADO_USUARIO
+        FK_RELATIONSHIP_9:
+            columns:
+                - ID_TIPO_USUARIO
+    id:
+        idUsuario:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_USUARIO
+            generator:
+                strategy: IDENTITY
+    fields:
+        cedula:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: CEDULA
+        nombre:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: NOMBRE
+        telefono:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: TELEFONO
+        tag:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: TAG
+        email:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: EMAIL
+        foto:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: FOTO
+    manyToOne:
+        idEstadoUsuario:
+            targetEntity: EstadoUsuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_ESTADO_USUARIO:
+                    referencedColumnName: ID_ESTADO_USUARIO
+            orphanRemoval: false
+        idTipoUsuario:
+            targetEntity: TipoUsuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_TIPO_USUARIO:
+                    referencedColumnName: ID_TIPO_USUARIO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

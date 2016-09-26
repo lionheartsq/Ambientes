@@ -1,0 +1,96 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Solicitud
+ *
+ * @ORM\Table(name="solicitud", indexes={@ORM\Index(name="FK_RELATIONSHIP_3", columns={"ID_AMBIENTE"})})
+ * @ORM\Entity
+ */
+class Solicitud
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_SOLICITUD", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idSolicitud;
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_SOLICITUD", type="date", nullable=true)
+     */
+    private $fechaSolicitud;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_RESPUESTA", type="date", nullable=true)
+     */
+    private $fechaRespuesta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_INICIO", type="date", nullable=true)
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_FIN", type="date", nullable=true)
+     */
+    private $fechaFin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_INICIO", type="time", nullable=true)
+     */
+    private $horaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_FIN", type="time", nullable=true)
+     */
+    private $horaFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=250, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="NUMERO_PERSONAS", type="integer", nullable=true)
+     */
+    private $numeroPersonas;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ambiente
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ambiente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AMBIENTE", referencedColumnName="ID_AMBIENTE")
+     * })
+     */
+    private $idAmbiente;
+
+
+    /**
+     * Get idSolicitud
+     *
+     * @return integer 
+     */
+}

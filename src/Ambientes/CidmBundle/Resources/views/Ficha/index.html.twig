@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Ficha Listado</h1></div>
+
+    <table class="table" width="100%">
+        <thead>
+            <tr>
+                <th>Idficha</th>
+                <th>Codigo</th>
+                <th>Programa</th>
+                <th>Instructorlider</th>
+                <th>Fechainiciolectiva</th>
+                <th>Fechafinlectiva</th>
+                <th>Fechacierreficha</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ficha_show', { 'id': entity.idFicha }) }}">{{ entity.idFicha }}</a></td>
+                <td width="5%">{{ entity.codigo }}</td>
+                <td width="5%">{{ entity.programa }}</td>
+                <td width="20%">{{ entity.instructorLider }}</td>
+                <td width="10%">{% if entity.fechaInicioLectiva %}{{ entity.fechaInicioLectiva|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td width="10%">{% if entity.fechaFinLectiva %}{{ entity.fechaFinLectiva|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td width="10%">{% if entity.fechaCierreFicha %}{{ entity.fechaCierreFicha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td width="40%">
+                <ul>
+<a class="btn btn-lg btn-primary" id="boton4" href="{{ path('ficha_show', { 'id': entity.idFicha }) }}" role="button">Ver</a>                        
+<a class="btn btn-lg btn-primary" id="boton3" href="{{ path('ficha_edit', { 'id': entity.idFicha }) }}" role="button">Editar</a>                        
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div id="prueba2">
+        <ul>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ficha_new') }}" role="button">Crear una nueva ficha</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+       </ul>
+ </div>                  
+  </div>
+    {% endblock %}

@@ -1,0 +1,64 @@
+Ambientes\CidmBundle\Entity\Ficha:
+    type: entity
+    table: ficha
+    indexes:
+        FK_RELATIONSHIP_10:
+            columns:
+                - ID_NIVEL
+    id:
+        idFicha:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_FICHA
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigo:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: CODIGO
+        programa:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: PROGRAMA
+        instructorLider:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: INSTRUCTOR_LIDER
+        fechaInicioLectiva:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_INICIO_LECTIVA
+        fechaFinLectiva:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_FIN_LECTIVA
+        fechaCierreFicha:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_CIERRE_FICHA
+    manyToOne:
+        idNivel:
+            targetEntity: NivelFormacion
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_NIVEL:
+                    referencedColumnName: ID_NIVEL
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

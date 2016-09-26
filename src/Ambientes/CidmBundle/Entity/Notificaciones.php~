@@ -1,0 +1,115 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Notificaciones
+ *
+ * @ORM\Table(name="notificaciones", indexes={@ORM\Index(name="FK_RELATIONSHIP_22", columns={"ID_TIPO_NOTIFICACION"}), @ORM\Index(name="FK_RELATIONSHIP_23", columns={"ID_FICHA"})})
+ * @ORM\Entity
+ */
+class Notificaciones
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_NOTIFICACION", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idNotificacion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_USUARIO_GEN", type="integer", nullable=true)
+     */
+    private $idUsuarioGen;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_USUARIO_REEM", type="integer", nullable=true)
+     */
+    private $idUsuarioReem;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=250, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=500, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_NOTIFICACION", type="date", nullable=true)
+     */
+    private $fechaNotificacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_RESPUESTA", type="date", nullable=true)
+     */
+    private $fechaRespuesta;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_INICIO", type="date", nullable=true)
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_FIN", type="date", nullable=true)
+     */
+    private $fechaFin;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_INICIO", type="time", nullable=true)
+     */
+    private $horaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_FIN", type="time", nullable=true)
+     */
+    private $horaFin;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\TipoNotificacion
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\TipoNotificacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TIPO_NOTIFICACION", referencedColumnName="ID_TIPO_NOTIFICACION")
+     * })
+     */
+    private $idTipoNotificacion;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ficha
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ficha")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FICHA", referencedColumnName="ID_FICHA")
+     * })
+     */
+    private $idFicha;
+
+
+}

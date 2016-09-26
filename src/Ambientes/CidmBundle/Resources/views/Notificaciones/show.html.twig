@@ -1,0 +1,68 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Notificaciones</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idnotificacion</th>
+                <td>{{ entity.idNotificacion }}</td>
+            </tr>
+            <tr>
+                <th>Idusuariogen</th>
+                <td>{{ entity.idUsuarioGen }}</td>
+            </tr>
+            <tr>
+                <th>Idusuarioreem</th>
+                <td>{{ entity.idUsuarioReem }}</td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td>{{ entity.estado }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Fechanotificacion</th>
+                <td>{{ entity.fechaNotificacion|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fecharespuesta</th>
+                <td>{{ entity.fechaRespuesta|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechainicio</th>
+                <td>{{ entity.fechaInicio|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechafin</th>
+                <td>{{ entity.fechaFin|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Horainicio</th>
+                <td>{{ entity.horaInicio }}</td>
+            </tr>
+            <tr>
+                <th>Horafin</th>
+                <td>{{ entity.horaFin }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('notificaciones') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('notificaciones_edit', { 'id': entity.idNotificacion }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

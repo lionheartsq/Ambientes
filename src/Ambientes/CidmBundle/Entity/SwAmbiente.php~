@@ -1,0 +1,45 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SwAmbiente
+ *
+ * @ORM\Table(name="sw_ambiente", indexes={@ORM\Index(name="FK_RELATIONSHIP_4", columns={"ID_SOFTWARE"}), @ORM\Index(name="FK_RELATIONSHIP_5", columns={"ID_AMBIENTE"})})
+ * @ORM\Entity
+ */
+class SwAmbiente
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Software
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Software")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOFTWARE", referencedColumnName="ID_SOFTWARE")
+     * })
+     */
+    private $idSoftware;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ambiente
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ambiente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AMBIENTE", referencedColumnName="ID_AMBIENTE")
+     * })
+     */
+    private $idAmbiente;
+
+
+}

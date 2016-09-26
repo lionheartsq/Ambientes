@@ -1,0 +1,12 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+        {% block stylesheets %}
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+ {% block title %}Confirmación solicitud{% endblock %}
+    {% block body %}
+<h1>Solicitud enviada</h1>
+<a class="btn btn-lg btn-primary" href="{{url('crud')}}" role="button">Regresar a inicio</a>
+<a class="btn btn-lg btn-primary" href="{{url('logout')}}" role="button">Salir</a>
+    {% endblock %}

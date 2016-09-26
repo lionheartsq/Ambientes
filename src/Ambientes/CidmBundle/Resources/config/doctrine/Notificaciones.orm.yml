@@ -1,0 +1,97 @@
+Ambientes\CidmBundle\Entity\Notificaciones:
+    type: entity
+    table: notificaciones
+    indexes:
+        FK_RELATIONSHIP_22:
+            columns:
+                - ID_TIPO_NOTIFICACION
+        FK_RELATIONSHIP_23:
+            columns:
+                - ID_FICHA
+    id:
+        idNotificacion:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_NOTIFICACION
+            generator:
+                strategy: IDENTITY
+    fields:
+        idUsuarioGen:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: ID_USUARIO_GEN
+        idUsuarioReem:
+            type: integer
+            nullable: true
+            unsigned: false
+            comment: ''
+            column: ID_USUARIO_REEM
+        estado:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: ESTADO
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+        fechaNotificacion:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_NOTIFICACION
+        fechaRespuesta:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_RESPUESTA
+        fechaInicio:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_INICIO
+        fechaFin:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_FIN
+        horaInicio:
+            type: time
+            nullable: true
+            comment: ''
+            column: HORA_INICIO
+        horaFin:
+            type: time
+            nullable: true
+            comment: ''
+            column: HORA_FIN
+    manyToOne:
+        idTipoNotificacion:
+            targetEntity: TipoNotificacion
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_TIPO_NOTIFICACION:
+                    referencedColumnName: ID_TIPO_NOTIFICACION
+            orphanRemoval: false
+        idFicha:
+            targetEntity: Ficha
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_FICHA:
+                    referencedColumnName: ID_FICHA
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

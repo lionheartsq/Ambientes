@@ -1,0 +1,87 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Usuario
+ *
+ * @ORM\Table(name="usuario", indexes={@ORM\Index(name="FK_RELATIONSHIP_8", columns={"ID_ESTADO_USUARIO"}), @ORM\Index(name="FK_RELATIONSHIP_9", columns={"ID_TIPO_USUARIO"})})
+ * @ORM\Entity
+ */
+class Usuario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_USUARIO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idUsuario;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CEDULA", type="integer", nullable=false)
+     */
+    private $cedula;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="NOMBRE", type="string", length=250, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="TELEFONO", type="integer", nullable=true)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TAG", type="string", length=250, nullable=true)
+     */
+    private $tag;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="EMAIL", type="string", length=250, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="FOTO", type="string", length=250, nullable=true)
+     */
+    private $foto;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\EstadoUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\EstadoUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_ESTADO_USUARIO", referencedColumnName="ID_ESTADO_USUARIO")
+     * })
+     */
+    private $idEstadoUsuario;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\TipoUsuario
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\TipoUsuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TIPO_USUARIO", referencedColumnName="ID_TIPO_USUARIO")
+     * })
+     */
+    private $idTipoUsuario;
+
+
+}

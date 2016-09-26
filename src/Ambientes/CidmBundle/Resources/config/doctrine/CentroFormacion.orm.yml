@@ -1,0 +1,42 @@
+Ambientes\CidmBundle\Entity\CentroFormacion:
+    type: entity
+    table: centro_formacion
+    indexes:
+        FK_RELATIONSHIP_1:
+            columns:
+                - ID_REGIONAL
+    id:
+        idCentro:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_CENTRO
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigo:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: CODIGO
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    manyToOne:
+        idRegional:
+            targetEntity: Regional
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_REGIONAL:
+                    referencedColumnName: ID_REGIONAL
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

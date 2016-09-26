@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>AccesoAmbientes</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idacceso</th>
+                <td>{{ entity.idAcceso }}</td>
+            </tr>
+            <tr>
+                <th>Fechacompleta</th>
+                <td>{{ entity.fechaCompleta|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Observaciones</th>
+                <td>{{ entity.observaciones }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('accesoambientes') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('accesoambientes_edit', { 'id': entity.idAcceso }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

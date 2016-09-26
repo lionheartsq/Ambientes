@@ -1,0 +1,32 @@
+Ambientes\CidmBundle\Entity\Jornada:
+    type: entity
+    table: jornada
+    id:
+        idJornada:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_JORNADA
+            generator:
+                strategy: IDENTITY
+    fields:
+        horaInicio:
+            type: time
+            nullable: true
+            comment: ''
+            column: HORA_INICIO
+        horaFin:
+            type: time
+            nullable: true
+            comment: ''
+            column: HORA_FIN
+        descripcion:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

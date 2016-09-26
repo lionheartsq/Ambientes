@@ -1,0 +1,40 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+
+{% block title %}Solicitud de ambiente{% endblock %}
+    {% block body %}
+        <br><div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="row">
+        {% if is_granted("ROLE_ADMIN") %}
+        <form action='solinstructora' method='post'>  
+            <h2>Crear solicitud</h2>
+            <div class="col-md-4">
+           <label>Fecha Inicio</label><input type="date" class="input-group" name="finicio" value='{{ "now"|date("Y-m-d") }}'><br>
+           <label>Fecha fin</label><input type="date" class="input-group" name="ffin" value='{{ "now"|date("Y-m-d") }}'><br>
+           <label>Fecha respuesta</label><input type="date" class="input-group" name="respuesta" readonly><br><br>
+           <input class="btn btn-primary" type="submit" id="submit" name="submit" value="{{ 'Enviar' }}">
+            </div> 
+           <div class="col-md-4">
+           <label>Hora Inicio</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="hinicio"><br>
+           <label>Hora Fin</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="hfin"><br>
+           <label>Numero de personas</label><input class="input-group" type='number' name='personas'><br>
+           <input class="input-group" type='hidden' name='usuario' value='{{ app.user }}'>
+           <input class="input-group" type='hidden' name='fsolicitud' value='{{ "now"|date("Y-m-d") }}'>
+           <label>Software requerido</label><br><select name="software">
+           <option value="1">Ninguno</option>
+           <option value="2">Ofimatica</option>
+           </select><br>
+         </div>
+        </form>
+        {% endif %}
+   
+    <div class="col-md-4"> 
+        <img src="{{ asset('/recursos/logo.png') }}" alt="logo" width="200"/><br><br><br>
+        <a class="btn btn-lg btn-primary" href="{{ path('crud') }}">Regresar al inicio</a>
+        <a class="btn btn-lg btn-primary" href="{{url('logout')}}" role="button">Salir</a>
+    </div>
+    </div>
+     </div>
+     </div>
+      {% endblock %}

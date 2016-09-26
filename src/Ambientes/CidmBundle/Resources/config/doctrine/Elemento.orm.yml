@@ -1,0 +1,62 @@
+Ambientes\CidmBundle\Entity\Elemento:
+    type: entity
+    table: elemento
+    indexes:
+        FK_RELATIONSHIP_24:
+            columns:
+                - ID_USUARIO
+        FK_RELATIONSHIP_25:
+            columns:
+                - ID_TIPO_ELEMENTO
+    id:
+        idElemento:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_ELEMENTO
+            generator:
+                strategy: IDENTITY
+    fields:
+        marca:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: MARCA
+        serial:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: SERIAL
+        observaciones:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: OBSERVACIONES
+    manyToOne:
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_USUARIO:
+                    referencedColumnName: ID_USUARIO
+            orphanRemoval: false
+        idTipoElemento:
+            targetEntity: TipoElemento
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_TIPO_ELEMENTO:
+                    referencedColumnName: ID_TIPO_ELEMENTO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

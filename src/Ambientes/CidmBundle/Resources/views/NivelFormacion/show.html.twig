@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NivelFormacion</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idnivel</th>
+                <td>{{ entity.idNivel }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('nivelformacion') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('nivelformacion_edit', { 'id': entity.idNivel }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

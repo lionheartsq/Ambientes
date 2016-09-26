@@ -1,0 +1,55 @@
+Ambientes\CidmBundle\Entity\ElementoIngreso:
+    type: entity
+    table: elemento_ingreso
+    indexes:
+        FK_RELATIONSHIP_28:
+            columns:
+                - ID_ELEMENTO
+        FK_RELATIONSHIP_29:
+            columns:
+                - ID_INGRESO
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        codBarras:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: COD_BARRAS
+        estado:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: ESTADO
+    manyToOne:
+        idElemento:
+            targetEntity: Elemento
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_ELEMENTO:
+                    referencedColumnName: ID_ELEMENTO
+            orphanRemoval: false
+        idIngreso:
+            targetEntity: Ingreso
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_INGRESO:
+                    referencedColumnName: ID_INGRESO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

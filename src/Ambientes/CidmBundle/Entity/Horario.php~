@@ -1,0 +1,52 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Horario
+ *
+ * @ORM\Table(name="horario", indexes={@ORM\Index(name="FK_RELATIONSHIP_12", columns={"ID_JORNADA"}), @ORM\Index(name="FK_RELATIONSHIP_13", columns={"ID_FICHA"})})
+ * @ORM\Entity
+ */
+class Horario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DIA", type="string", length=250, nullable=true)
+     */
+    private $dia;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Jornada
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Jornada")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_JORNADA", referencedColumnName="ID_JORNADA")
+     * })
+     */
+    private $idJornada;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ficha
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ficha")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FICHA", referencedColumnName="ID_FICHA")
+     * })
+     */
+    private $idFicha;
+
+
+}

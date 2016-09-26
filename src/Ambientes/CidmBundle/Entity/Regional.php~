@@ -1,0 +1,39 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Regional
+ *
+ * @ORM\Table(name="regional")
+ * @ORM\Entity
+ */
+class Regional
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_REGIONAL", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idRegional;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CODIGO", type="integer", nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=500, nullable=false)
+     */
+    private $descripcion;
+
+
+}

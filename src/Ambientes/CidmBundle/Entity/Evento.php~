@@ -1,0 +1,76 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Evento
+ *
+ * @ORM\Table(name="evento", indexes={@ORM\Index(name="FK_RELATIONSHIP_16", columns={"ID_FICHA"}), @ORM\Index(name="FK_RELATIONSHIP_17", columns={"ID_USUARIO"}), @ORM\Index(name="FK_RELATIONSHIP_18", columns={"ID_AMBIENTE"})})
+ * @ORM\Entity
+ */
+class Evento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_EVENTO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEvento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=500, nullable=true)
+     */
+    private $descripcion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_INICIO", type="date", nullable=true)
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_FIN", type="date", nullable=true)
+     */
+    private $fechaFin;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ficha
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ficha")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_FICHA", referencedColumnName="ID_FICHA")
+     * })
+     */
+    private $idFicha;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_USUARIO", referencedColumnName="ID_USUARIO")
+     * })
+     */
+    private $idUsuario;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ambiente
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ambiente")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_AMBIENTE", referencedColumnName="ID_AMBIENTE")
+     * })
+     */
+    private $idAmbiente;
+
+
+}

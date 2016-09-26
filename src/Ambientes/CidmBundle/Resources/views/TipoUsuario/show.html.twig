@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Tipo de Usuario</h1></div>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idtipousuario</th>
+                <td>{{ entity.idTipoUsuario }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('tipousuario') }}">
+            Regresar a la lista
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('tipousuario_edit', { 'id': entity.idTipoUsuario }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+  </div>
+{% endblock %}

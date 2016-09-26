@@ -1,0 +1,40 @@
+Ambientes\CidmBundle\Entity\UsuarioFicha:
+    type: entity
+    table: usuario_ficha
+    indexes:
+        FK_RELATIONSHIP_14:
+            columns:
+                - ID_USUARIO
+        FK_RELATIONSHIP_15:
+            columns:
+                - ID_FICHA
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_USUARIO:
+                    referencedColumnName: ID_USUARIO
+            orphanRemoval: false
+        idFicha:
+            targetEntity: Ficha
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_FICHA:
+                    referencedColumnName: ID_FICHA
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+software:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Software:index" }
+
+software_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Software:show" }
+
+software_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Software:new" }
+
+software_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Software:create" }
+    requirements: { _method: post }
+
+software_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Software:edit" }
+
+software_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Software:update" }
+    requirements: { _method: post|put }
+
+software_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Software:delete" }
+    requirements: { _method: post|delete }

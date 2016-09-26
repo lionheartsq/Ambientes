@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    
+        <meta charset="UTF-8" />
+        <title>{% block title %}GESTIÓN{% endblock %}</title>
+        {% block stylesheets %}
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    
+    <body>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+        <script type="text/javascript" src="{{ asset('bundles/ambientescidm/js/bootstrap.js') }}"></script>
+        {% endblock %}
+    </body>    
+</html>

@@ -1,0 +1,45 @@
+api_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: apiBundle:Default:index }
+    
+api_getregionales:
+    pattern:  /getregionales/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:regionales, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON       
+      
+api_getambientes:
+    pattern:  /getambientes/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:ambientes, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON 
+      
+api_getfichas:
+    pattern:  /getfichas/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:fichas, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON 
+      
+api_getusuarios:
+    pattern:  /getusuarios/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:usuarios, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON   
+      
+api_getsolicitudes:
+    pattern:  /getsolicitudes/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:solicitudes, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON        
+      
+api_fichaid:
+    pattern:  /fichaid/{_locale}.{_format}
+    defaults: { _controller: apiBundle:Default:fichaid, _format: json, _locale: en}
+    requirements:
+      _method:  GET
+      _format: JSON          

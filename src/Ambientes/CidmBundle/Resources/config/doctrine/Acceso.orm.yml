@@ -1,0 +1,36 @@
+Ambientes\CidmBundle\Entity\Acceso:
+    type: entity
+    table: acceso
+    indexes:
+        FK_RELATIONSHIP_11:
+            columns:
+                - ID_USUARIO
+    id:
+        idAcceso:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_ACCESO
+            generator:
+                strategy: IDENTITY
+    fields:
+        contrasena:
+            type: string
+            nullable: true
+            length: 32
+            fixed: false
+            comment: ''
+            column: CONTRASENA
+    manyToOne:
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_USUARIO:
+                    referencedColumnName: ID_USUARIO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

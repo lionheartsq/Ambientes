@@ -1,0 +1,29 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+
+{% block title %}Carga csv{% endblock %}
+    {% block body %}
+        <br><br>
+        <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+         <h3>Carga de archivos CSV usuarios</h3>
+          <div class="row">
+        {% if is_granted("ROLE_ADMIN") %} 
+        <form action='cus' method='post' enctype="multipart/form-data">             
+       <div class="col-md-8">
+       <input class="btn btn-primary" id="boton2" type='file' name='sel_file'><br>
+       <input class="btn btn-primary" id="boton2" type="submit" id="submit" name="submit" value="{{ 'Cargar' }}">
+         </div>
+        </form>
+        {% endif %}
+   
+    <div class="col-md-4"> 
+        <img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="200"/>
+    </div>
+    </div>
+        <a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}">Regresar al inicio</a>
+        <a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+     </div>
+     </div>
+      {% endblock %}

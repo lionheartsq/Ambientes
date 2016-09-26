@@ -1,0 +1,30 @@
+acceso:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:index" }
+
+acceso_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:show" }
+
+acceso_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:new" }
+
+acceso_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:create" }
+    requirements: { _method: post }
+
+acceso_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:edit" }
+
+acceso_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:update" }
+    requirements: { _method: post|put }
+
+acceso_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Acceso:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\TipoElemento:
+    type: entity
+    table: tipo_elemento
+    id:
+        idTipoElemento:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_TIPO_ELEMENTO
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

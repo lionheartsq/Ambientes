@@ -1,0 +1,53 @@
+Ambientes\CidmBundle\Entity\Ingreso:
+    type: entity
+    table: ingreso
+    indexes:
+        FK_RELATIONSHIP_26:
+            columns:
+                - ID_ESTADO
+        FK_RELATIONSHIP_27:
+            columns:
+                - ID_USUARIO
+    id:
+        idIngreso:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_INGRESO
+            generator:
+                strategy: IDENTITY
+    fields:
+        tag:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: TAG
+        fechaCompleta:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_COMPLETA
+    manyToOne:
+        idEstado:
+            targetEntity: Estado
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_ESTADO:
+                    referencedColumnName: ID_ESTADO
+            orphanRemoval: false
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_USUARIO:
+                    referencedColumnName: ID_USUARIO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

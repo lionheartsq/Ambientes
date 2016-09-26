@@ -1,0 +1,210 @@
+ambientes_cidm_usuarioficha:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/usuarioficha.yml"
+    prefix:   /usuarioficha
+
+ambientes_cidm_usuario:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/usuario.yml"
+    prefix:   /usuario
+
+ambientes_cidm_tipousuario:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/tipousuario.yml"
+    prefix:   /tipousuario
+
+ambientes_cidm_tipoelemento:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/tipoelemento.yml"
+    prefix:   /tipoelemento
+
+ambientes_cidm_swsolicitud:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/swsolicitud.yml"
+    prefix:   /swsolicitud
+
+ambientes_cidm_swambiente:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/swambiente.yml"
+    prefix:   /swambiente
+
+ambientes_cidm_solicitud:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/solicitud.yml"
+    prefix:   /solicitud
+    
+ambientes_cidm_software:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/software.yml"
+    prefix:   /software
+
+ambientes_cidm_regional:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/regional.yml"
+    prefix:   /regional
+
+ambientes_cidm_notificaciones:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/notificaciones.yml"
+    prefix:   /notificaciones
+
+ambientes_cidm_nivelformacion:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/nivelformacion.yml"
+    prefix:   /nivelformacion
+
+ambientes_cidm_jornada:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/jornada.yml"
+    prefix:   /jornada
+
+ambientes_cidm_ingreso:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/ingreso.yml"
+    prefix:   /ingreso
+
+ambientes_cidm_horario:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/horario.yml"
+    prefix:   /horario
+
+ambientes_cidm_ficha:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/ficha.yml"
+    prefix:   /ficha
+
+ambientes_cidm_evento:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/evento.yml"
+    prefix:   /evento
+
+ambientes_cidm_estadousuario:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/estadousuario.yml"
+    prefix:   /estadousuario
+
+ambientes_cidm_estadoaccesoambientes:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/estadoaccesoambientes.yml"
+    prefix:   /estadoaccesoambientes
+
+ambientes_cidm_estado:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/estado.yml"
+    prefix:   /estado
+
+ambientes_cidm_elementoingreso:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/elementoingreso.yml"
+    prefix:   /elementoingreso
+
+ambientes_cidm_elemento:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/elemento.yml"
+    prefix:   /elemento
+
+ambientes_cidm_calendarioevento:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/calendarioevento.yml"
+    prefix:   /calendarioevento
+
+ambientes_cidm_accesoambientes:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/accesoambientes.yml"
+    prefix:   /accesoambientes
+
+ambientes_cidm_acceso:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/acceso.yml"
+    prefix:   /acceso
+
+ambientes_cidm_centroformacion:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/centroformacion.yml"
+    prefix:   /centroformacion
+
+ambientes_cidm_ambiente:
+    resource: "@AmbientesCidmBundle/Resources/config/routing/ambiente.yml"
+    prefix:   /ambiente
+
+ambientes_cidm_homepage:
+    path:     /
+    defaults: { _controller: AmbientesCidmBundle:Default:index }
+
+ambientes_test:
+    path:     /test
+    defaults: { _controller: AmbientesCidmBundle:Default:test }
+
+crud:
+    pattern: /crud
+    defaults: { _controller: AmbientesCidmBundle:Default:crud }
+    
+carga_tipo_usuarios:
+    pattern: /ctus
+    defaults: { _controller: AmbientesCidmBundle:Default:cargatipous }    
+
+carga_tipo_u:
+    pattern: /ct
+    defaults: { _controller: AmbientesCidmBundle:Default:ct }     
+
+carga_usuarios:
+    pattern: /cus
+    defaults: { _controller: AmbientesCidmBundle:Default:cargausuarios }    
+
+carga_u:
+    pattern: /us
+    defaults: { _controller: AmbientesCidmBundle:Default:us }       
+    
+carga_elementos:
+    pattern: /cel
+    defaults: { _controller: AmbientesCidmBundle:Default:cargael }    
+
+carga_e:
+    pattern: /ce
+    defaults: { _controller: AmbientesCidmBundle:Default:ce }  
+    
+carga_fichas:
+    pattern: /cfi
+    defaults: { _controller: AmbientesCidmBundle:Default:cargafichas }    
+
+carga_f:
+    pattern: /cf
+    defaults: { _controller: AmbientesCidmBundle:Default:cf }       
+    
+login:
+    pattern: /login
+    defaults: { _controller: FOSUserBundle:Security:login }
+    
+login_check:
+    pattern: /login_check
+
+logout:
+    pattern: /logout
+
+admin:
+    pattern: /admin
+    defaults: { _controller: AmbientesCidmBundle:Default:admin }
+    
+coordinador:
+    pattern: /coordinador
+    defaults: { _controller: AmbientesCidmBundle:Default:coordinador }
+    
+instructor:
+    pattern: /instructor
+    defaults: { _controller: AmbientesCidmBundle:Default:instructor }
+ 
+dualprueba:
+    pattern: /dualprueba
+    defaults: { _controller: AmbientesCidmBundle:Default:dualprueba }  
+
+prueba:
+    pattern: /prueba
+    defaults: { _controller: AmbientesCidmBundle:Default:prueba }  
+
+solinstructora:
+    pattern: /solinstructora
+    defaults: { _controller: AmbientesCidmBundle:Solinstructor:solinstructora }  
+
+solinstructor:
+    pattern: /solinstructor
+    defaults: { _controller: AmbientesCidmBundle:Solinstructor:solinstructor }
+
+notinstructora:
+    pattern: /notinstructora
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notinstructora }  
+
+notinstructor:
+    pattern: /notinstructor
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notinstructor }
+    
+solic:
+    pattern: /solic
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:solic }  
+    
+soliccoord:
+    pattern: /soliccoord
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:soliccoord } 
+
+notif:
+    pattern: /notif
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notif }  
+
+notcoord:
+    pattern: /notcoord
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notcoord }      
+  

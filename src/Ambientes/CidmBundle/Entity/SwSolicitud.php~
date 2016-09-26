@@ -1,0 +1,45 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * SwSolicitud
+ *
+ * @ORM\Table(name="sw_solicitud", indexes={@ORM\Index(name="FK_RELATIONSHIP_6", columns={"ID_SOLICITUD"}), @ORM\Index(name="FK_RELATIONSHIP_7", columns={"ID_SOFTWARE"})})
+ * @ORM\Entity
+ */
+class SwSolicitud
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Solicitud
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Solicitud")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOLICITUD", referencedColumnName="ID_SOLICITUD")
+     * })
+     */
+    private $idSolicitud;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Software
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Software")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_SOFTWARE", referencedColumnName="ID_SOFTWARE")
+     * })
+     */
+    private $idSoftware;
+
+
+}

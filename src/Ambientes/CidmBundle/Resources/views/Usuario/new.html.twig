@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Creación de Usuarios<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+
+    {{ form(form) }}
+ <div id="prueba2">
+        <ul class="record_actions">
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('usuario') }}" role="button">Regresar a la lista</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+       </ul>
+ </div>             
+  </div>
+{% endblock %}

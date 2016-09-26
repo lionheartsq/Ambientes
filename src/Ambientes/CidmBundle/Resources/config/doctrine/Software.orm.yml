@@ -1,0 +1,29 @@
+Ambientes\CidmBundle\Entity\Software:
+    type: entity
+    table: software
+    id:
+        idSoftware:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_SOFTWARE
+            generator:
+                strategy: IDENTITY
+    fields:
+        categoria:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: CATEGORIA
+        nombre:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: NOMBRE
+    lifecycleCallbacks: {  }

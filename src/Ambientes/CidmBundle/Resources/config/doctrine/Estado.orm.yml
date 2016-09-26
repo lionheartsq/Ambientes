@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\Estado:
+    type: entity
+    table: estado
+    id:
+        idEstado:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_ESTADO
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

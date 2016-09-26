@@ -1,0 +1,30 @@
+usuarioficha:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:index" }
+
+usuarioficha_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:show" }
+
+usuarioficha_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:new" }
+
+usuarioficha_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:create" }
+    requirements: { _method: post }
+
+usuarioficha_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:edit" }
+
+usuarioficha_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:update" }
+    requirements: { _method: post|put }
+
+usuarioficha_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:UsuarioFicha:delete" }
+    requirements: { _method: post|delete }

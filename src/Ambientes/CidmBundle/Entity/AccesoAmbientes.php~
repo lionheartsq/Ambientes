@@ -1,0 +1,59 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * AccesoAmbientes
+ *
+ * @ORM\Table(name="acceso_ambientes", indexes={@ORM\Index(name="FK_RELATIONSHIP_19", columns={"ID_ESTADO"}), @ORM\Index(name="FK_RELATIONSHIP_20", columns={"ID_EVENTO"})})
+ * @ORM\Entity
+ */
+class AccesoAmbientes
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_ACCESO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idAcceso;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_COMPLETA", type="date", nullable=true)
+     */
+    private $fechaCompleta;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACIONES", type="string", length=500, nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\EstadoAccesoAmbientes
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\EstadoAccesoAmbientes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_ESTADO", referencedColumnName="ID_ESTADO")
+     * })
+     */
+    private $idEstado;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Evento
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Evento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_EVENTO", referencedColumnName="ID_EVENTO")
+     * })
+     */
+    private $idEvento;
+
+
+}

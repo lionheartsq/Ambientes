@@ -1,0 +1,44 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+
+{% block title %}Envio de notificaciones{% endblock %}
+    {% block body %}
+        <br><br><div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="row">
+        {% if is_granted("ROLE_USER") %}
+        <form action='notinstructora' method='post'>  
+            <h2>Crear notificación</h2>
+            <div class="col-md-4">
+           <label>Fecha notificación</label><input type="date" class="input-group" name="fnot" value='{{ "now"|date("Y-m-d") }}' readonly><br>
+           <label>Fecha inicio</label><input type="date" class="input-group" name="finicio" value='{{ "now"|date("Y-m-d") }}'><br>
+           <label>Fecha fin</label><input type="date" class="input-group" name="ffin" value='{{ "now"|date("Y-m-d") }}'><br>
+           <label>Descripción :</label><input class="input-group" type='textarea' name='descripcion'><br>           
+           <label>Fecha respuesta</label><input type="date" class="input-group" name="respuesta" readonly><br><br>
+            </div> 
+           <div class="col-md-4">
+           <label>Hora Inicio</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="hinicio"><br>
+           <label>Hora Fin</label><input type="time" class="input-group" value="06:00:00" max="22:30:00" min="06:00:00" name="hfin"><br>
+           <label>Ficha :</label><input class="input-group" type='number' name='ficha'><br>
+           <input class="input-group" type='hidden' name='usuario' value='{{ app.user }}'>
+           <label>Tipo de notificación</label><br><select name="tipo">
+           <option value="1">Permiso</option>
+           <option value="2">Reemplazo</option>
+           <option value="3">Incapacidad</option>
+           <option value="4">Trabajo externo</option>
+           <option value="5">Salida aprendiz</option>
+           </select><br><br><br>
+           <input class="btn btn-primary" type="submit" id="boton" name="submit" value="{{ 'Enviar' }}">           
+         </div>
+        </form>
+        {% endif %}
+   
+    <div class="col-md-4"> 
+        <img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="200"/><br><br><br>
+        <a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}">Regresar al inicio</a>
+        <a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+    </div>
+    </div>
+     </div>
+     </div>
+      {% endblock %}

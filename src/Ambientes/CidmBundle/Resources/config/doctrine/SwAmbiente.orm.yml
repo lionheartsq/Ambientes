@@ -1,0 +1,40 @@
+Ambientes\CidmBundle\Entity\SwAmbiente:
+    type: entity
+    table: sw_ambiente
+    indexes:
+        FK_RELATIONSHIP_4:
+            columns:
+                - ID_SOFTWARE
+        FK_RELATIONSHIP_5:
+            columns:
+                - ID_AMBIENTE
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idSoftware:
+            targetEntity: Software
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_SOFTWARE:
+                    referencedColumnName: ID_SOFTWARE
+            orphanRemoval: false
+        idAmbiente:
+            targetEntity: Ambiente
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_AMBIENTE:
+                    referencedColumnName: ID_AMBIENTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

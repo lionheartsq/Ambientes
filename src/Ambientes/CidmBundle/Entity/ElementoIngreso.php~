@@ -1,0 +1,59 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ElementoIngreso
+ *
+ * @ORM\Table(name="elemento_ingreso", indexes={@ORM\Index(name="FK_RELATIONSHIP_28", columns={"ID_ELEMENTO"}), @ORM\Index(name="FK_RELATIONSHIP_29", columns={"ID_INGRESO"})})
+ * @ORM\Entity
+ */
+class ElementoIngreso
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="COD_BARRAS", type="string", length=250, nullable=true)
+     */
+    private $codBarras;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ESTADO", type="string", length=250, nullable=true)
+     */
+    private $estado;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Elemento
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Elemento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_ELEMENTO", referencedColumnName="ID_ELEMENTO")
+     * })
+     */
+    private $idElemento;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Ingreso
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Ingreso")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_INGRESO", referencedColumnName="ID_INGRESO")
+     * })
+     */
+    private $idIngreso;
+
+
+}

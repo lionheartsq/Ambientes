@@ -1,0 +1,30 @@
+swambiente:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:index" }
+
+swambiente_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:show" }
+
+swambiente_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:new" }
+
+swambiente_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:create" }
+    requirements: { _method: post }
+
+swambiente_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:edit" }
+
+swambiente_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:update" }
+    requirements: { _method: post|put }
+
+swambiente_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:SwAmbiente:delete" }
+    requirements: { _method: post|delete }

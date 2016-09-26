@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\TipoUsuario:
+    type: entity
+    table: tipo_usuario
+    id:
+        idTipoUsuario:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_TIPO_USUARIO
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

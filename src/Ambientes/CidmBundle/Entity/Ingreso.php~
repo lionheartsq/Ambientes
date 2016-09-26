@@ -1,0 +1,59 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ingreso
+ *
+ * @ORM\Table(name="ingreso", indexes={@ORM\Index(name="FK_RELATIONSHIP_26", columns={"ID_ESTADO"}), @ORM\Index(name="FK_RELATIONSHIP_27", columns={"ID_USUARIO"})})
+ * @ORM\Entity
+ */
+class Ingreso
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_INGRESO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idIngreso;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="TAG", type="string", length=250, nullable=true)
+     */
+    private $tag;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_COMPLETA", type="date", nullable=true)
+     */
+    private $fechaCompleta;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Estado
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Estado")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_ESTADO", referencedColumnName="ID_ESTADO")
+     * })
+     */
+    private $idEstado;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_USUARIO", referencedColumnName="ID_USUARIO")
+     * })
+     */
+    private $idUsuario;
+
+
+}

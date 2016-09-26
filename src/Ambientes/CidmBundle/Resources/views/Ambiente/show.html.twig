@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Ambiente</h1></div>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idambiente</th>
+                <td>{{ entity.idAmbiente }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ entity.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ entity.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ entity.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Puestostrabajo</th>
+                <td>{{ entity.puestosTrabajo }}</td>
+            </tr>
+        </tbody>
+    </table>
+{{ form(delete_form) }}
+<div id="prueba2">
+        <ul class="record_actions">
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ambiente_edit', { 'id': entity.idAmbiente }) }}" role="button">Editar</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ambiente') }}" role="button">Regresar a la lista</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+        </ul>
+ </div>   
+      </div>
+{% endblock %}

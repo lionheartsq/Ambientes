@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\NivelFormacion:
+    type: entity
+    table: nivel_formacion
+    id:
+        idNivel:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_NIVEL
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

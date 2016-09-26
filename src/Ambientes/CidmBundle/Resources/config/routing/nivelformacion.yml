@@ -1,0 +1,30 @@
+nivelformacion:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:index" }
+
+nivelformacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:show" }
+
+nivelformacion_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:new" }
+
+nivelformacion_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:create" }
+    requirements: { _method: post }
+
+nivelformacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:edit" }
+
+nivelformacion_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:update" }
+    requirements: { _method: post|put }
+
+nivelformacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:NivelFormacion:delete" }
+    requirements: { _method: post|delete }

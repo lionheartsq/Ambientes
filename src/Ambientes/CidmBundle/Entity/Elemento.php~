@@ -1,0 +1,66 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Elemento
+ *
+ * @ORM\Table(name="elemento", indexes={@ORM\Index(name="FK_RELATIONSHIP_24", columns={"ID_USUARIO"}), @ORM\Index(name="FK_RELATIONSHIP_25", columns={"ID_TIPO_ELEMENTO"})})
+ * @ORM\Entity
+ */
+class Elemento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_ELEMENTO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idElemento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="MARCA", type="string", length=250, nullable=true)
+     */
+    private $marca;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="SERIAL", type="string", length=500, nullable=true)
+     */
+    private $serial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="OBSERVACIONES", type="string", length=500, nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\Usuario
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\Usuario")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_USUARIO", referencedColumnName="ID_USUARIO")
+     * })
+     */
+    private $idUsuario;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\TipoElemento
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\TipoElemento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_TIPO_ELEMENTO", referencedColumnName="ID_TIPO_ELEMENTO")
+     * })
+     */
+    private $idTipoElemento;
+
+
+}

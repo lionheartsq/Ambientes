@@ -1,0 +1,57 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+        {% block stylesheets %}
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+ {% block title %}CRUD GENERAL{% endblock %}
+    {% block body %}
+        <br><br>    
+    <div class="container">        
+
+  <!-- Default panel contents -->
+{% if is_granted("ROLE_SUPER_ADMIN") %}
+  <!-- Table -->
+    <div class="panel-heading" id="cabecera">
+    <h1>Tablas Básicas <img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1>
+        </div>
+  <nav class="navbar navbar-default">
+
+      <ul class="nav navbar-nav" id="menunav">
+        <li><a href="{{url('regional')}}">Regional </a></li>
+        <li><a href="{{url('centroformacion')}}">Centro de formación </a></li>
+        <li><a href="{{url('ambiente')}}">Ambiente </a></li>
+        <li><a href="{{url('ficha')}}">Ficha </a></li>
+        <li><a href="{{url('usuario')}}">Usuario </a></li>
+      <!--      
+      solo se comento por el evento
+        <li><a href="{{url('tipousuario')}}">Tipo Usuario </a></li>
+        <li><a href="{{url('tipoelemento')}}">Tipo Elemento </a></li>
+        <li><a href="{{url('estado')}}">Estado </a></li>
+      -->  
+        <li>
+<div id="menu">
+<ul>
+    <li class="has-sub"><a href="">Cargas CSV</a>
+        <ul>
+         <li><a href="{{url('carga_tipo_u')}}">Tipo Usuario </a></li>
+        <li><a href="{{url('carga_e')}}">Elementos </a></li>
+        <li><a href="{{url('carga_f')}}">Fichas </a></li>
+        <li><a href="{{url('carga_u')}}">Usuarios </a></li>
+        </ul>
+    </li>
+</div> 
+        </li>
+      </ul>
+</nav>
+ <div id="prueba">	
+        <h3>Coordinador {{ app.user }} en esta sección puede gestionar las tablas básicas.</h3><br>
+    
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('solic')}}" role="button">Atender solicitudes</a>
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('notif')}}" role="button">Atender notificaciones</a>
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+          <br><br>
+ </div>
+    </div>          
+{% endif %}    
+    {% endblock %}

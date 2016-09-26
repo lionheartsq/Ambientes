@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>NivelFormacion list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Idnivel</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('nivelformacion_show', { 'id': entity.idNivel }) }}">{{ entity.idNivel }}</a></td>
+                <td>{{ entity.descripcion }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('nivelformacion_show', { 'id': entity.idNivel }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('nivelformacion_edit', { 'id': entity.idNivel }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('nivelformacion_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

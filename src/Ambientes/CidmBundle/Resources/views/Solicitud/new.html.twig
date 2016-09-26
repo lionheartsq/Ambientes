@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Nueva solicitud</h1></div>
+
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        {% if is_granted("ROLE_USER") %}
+        <a href="{{ path('ambientes_test') }}">
+            Regresar
+        </a>
+        {% else %}
+        <a href="{{ path('solicitud') }}">
+            Back to the list
+        </a>
+            {% endif %}
+    </li>
+</ul>
+      </div>
+{% endblock %}

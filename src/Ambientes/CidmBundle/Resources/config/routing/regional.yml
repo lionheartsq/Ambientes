@@ -1,0 +1,30 @@
+regional:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Regional:index" }
+
+regional_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Regional:show" }
+
+regional_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Regional:new" }
+
+regional_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Regional:create" }
+    requirements: { _method: post }
+
+regional_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Regional:edit" }
+
+regional_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Regional:update" }
+    requirements: { _method: post|put }
+
+regional_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Regional:delete" }
+    requirements: { _method: post|delete }

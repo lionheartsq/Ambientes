@@ -1,0 +1,63 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="page-banner">
+        <div class="container">
+            <div class="parallax-mask"></div>
+            <div class="section-name">
+                <h2>Carousel</h2>
+                <div class="short-text">
+                    <div class="sep l"></div>
+                    <h5>Detalles</h5>
+                    <div class="sep r"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carousel.id }}</td>
+            </tr>
+            <tr>
+                <th>Imagen</th>
+                <td>{{ carousel.imagen }}</td>
+            </tr>
+            <tr>
+                <th>Textoprincipal</th>
+                <td>{{ carousel.textoPrincipal }}</td>
+            </tr>
+            <tr>
+                <th>Textosegundario</th>
+                <td>{{ carousel.textoSegundario }}</td>
+            </tr>
+            <tr>
+                <th>Espublicado</th>
+                <td>{% if carousel.esPublicado %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Orden</th>
+                <td>{{ carousel.orden }}</td>
+            </tr>
+            <tr>
+                <th>Fechacreacion</th>
+                <td>{% if carousel.fechaCreacion %}{{ carousel.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('carousel_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('carousel_edit', { 'id': carousel.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

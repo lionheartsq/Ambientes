@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\TipoNotificacion:
+    type: entity
+    table: tipo_notificacion
+    id:
+        idTipoNotificacion:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_TIPO_NOTIFICACION
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombre:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: NOMBRE
+    lifecycleCallbacks: {  }

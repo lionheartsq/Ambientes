@@ -1,0 +1,27 @@
+<div class="container hidden-xs hidden-sm" style="height:auto; position:relative;">
+    <div class="col-md-3" id="lateral "style="margin-right:0px; background-color: #FFFFFF; position:absolute;height:100%;">
+        <br><br>
+        <img src="{{asset("/img/main-logo.png")}}" alt="" class="center-block">
+    </div>
+    <div class="col-md-9 col-md-offset-3" style="margin-left:0px; padding: 0; float: right">
+        <div class="rev_slider_wrapper">
+            <div id="home-slider" class="rev_slider"  data-version="5.0">
+                <ul>	
+                    <!-- First Slide -->
+                    {% for imagen in carousels %}
+                        <li data-transition="random: elected">	
+                            <!-- Main Image -->
+                            <img src="{{asset("/uploads/carousel/" ~ imagen.imagen)}}" alt="">
+
+                            <!-- Layer 1 -->
+                            <div class="tp-caption caps-one tp-resizeme "  id="slide-1-layer-1" data-x="center" data-hoffset="0" data-y="top" data-voffset="230" data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;"  data-transform_in="y:[100%];z:0;rZ:-35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power2.easeInOut;"  data-transform_out="s:1000;e:Power2.easeInOut;s:2000;e:Power2.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-start="1000" data-splitin="chars" data-splitout="none" data-responsive_offset="on" >{{imagen.textoPrincipal}}</div> 
+
+                            <!-- Layer 2 -->
+                            <div class="tp-caption caps-two tp-resizeme "  id="slide-1-layer-2" data-x="center" data-hoffset="0" data-y="top" data-voffset="290" data-width="none" data-height="none" data-transform_idle="o:1;" data-transform_in="y:50px;opacity:0;s:1500;e:Power3.easeOut;" data-transform_out="s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-start="2000" data-splitin="none" data-splitout="none" data-responsive_offset="on">{{imagen.textoSegundario}}</div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * EstadoUsuario
+ *
+ * @ORM\Table(name="estado_usuario")
+ * @ORM\Entity
+ */
+class EstadoUsuario
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_ESTADO_USUARIO", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEstadoUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+
+}

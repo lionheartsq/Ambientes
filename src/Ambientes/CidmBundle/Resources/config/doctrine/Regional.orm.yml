@@ -1,0 +1,28 @@
+Ambientes\CidmBundle\Entity\Regional:
+    type: entity
+    table: regional
+    id:
+        idRegional:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_REGIONAL
+            generator:
+                strategy: IDENTITY
+    fields:
+        codigo:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            column: CODIGO
+        descripcion:
+            type: string
+            nullable: false
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

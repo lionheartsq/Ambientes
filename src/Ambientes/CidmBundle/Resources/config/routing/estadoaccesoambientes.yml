@@ -1,0 +1,30 @@
+estadoaccesoambientes:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:index" }
+
+estadoaccesoambientes_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:show" }
+
+estadoaccesoambientes_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:new" }
+
+estadoaccesoambientes_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:create" }
+    requirements: { _method: post }
+
+estadoaccesoambientes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:edit" }
+
+estadoaccesoambientes_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:update" }
+    requirements: { _method: post|put }
+
+estadoaccesoambientes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:EstadoAccesoAmbientes:delete" }
+    requirements: { _method: post|delete }

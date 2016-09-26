@@ -1,0 +1,48 @@
+Ambientes\CidmBundle\Entity\Horario:
+    type: entity
+    table: horario
+    indexes:
+        FK_RELATIONSHIP_12:
+            columns:
+                - ID_JORNADA
+        FK_RELATIONSHIP_13:
+            columns:
+                - ID_FICHA
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        dia:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: DIA
+    manyToOne:
+        idJornada:
+            targetEntity: Jornada
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_JORNADA:
+                    referencedColumnName: ID_JORNADA
+            orphanRemoval: false
+        idFicha:
+            targetEntity: Ficha
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_FICHA:
+                    referencedColumnName: ID_FICHA
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,61 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1>Solicitudes</h1></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idsolicitud</th>
+                <th>Fechasolicitud</th>
+                <th>Fecharespuesta</th>
+                <th>Fechainicio</th>
+                <th>Fechafin</th>
+                <th>Horainicio</th>
+                <th>Horafin</th>
+                <th>Estado</th>
+                <th>Numeropersonas</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('solicitud_show', { 'id': entity.idSolicitud }) }}">{{ entity.idSolicitud }}</a></td>
+                <td>{% if entity.fechaSolicitud %}{{ entity.fechaSolicitud|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.fechaRespuesta %}{{ entity.fechaRespuesta|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.fechaInicio %}{{ entity.fechaInicio|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if entity.fechaFin %}{{ entity.fechaFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.horaInicio|date('H:i:s')  }}</td>
+                <td>{{ entity.horaFin|date('H:i:s')  }}</td>
+                <td>{{ entity.estado }}</td>
+                <td>{{ entity.numeroPersonas }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('solicitud_show', { 'id': entity.idSolicitud }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('solicitud_edit', { 'id': entity.idSolicitud }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('solicitud_new') }}">
+                Create a new entry
+            </a><br>
+            <a href="{{ path('ambientes_test') }}">
+            Regresar
+        </a>    
+        </li>
+    </ul>
+      </div>
+    {% endblock %}

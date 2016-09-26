@@ -1,0 +1,30 @@
+centroformacion:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:index" }
+
+centroformacion_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:show" }
+
+centroformacion_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:new" }
+
+centroformacion_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:create" }
+    requirements: { _method: post }
+
+centroformacion_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:edit" }
+
+centroformacion_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:update" }
+    requirements: { _method: post|put }
+
+centroformacion_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:CentroFormacion:delete" }
+    requirements: { _method: post|delete }

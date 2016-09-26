@@ -1,0 +1,70 @@
+Ambientes\CidmBundle\Entity\Evento:
+    type: entity
+    table: evento
+    indexes:
+        FK_RELATIONSHIP_16:
+            columns:
+                - ID_FICHA
+        FK_RELATIONSHIP_17:
+            columns:
+                - ID_USUARIO
+        FK_RELATIONSHIP_18:
+            columns:
+                - ID_AMBIENTE
+    id:
+        idEvento:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_EVENTO
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 500
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+        fechaInicio:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_INICIO
+        fechaFin:
+            type: date
+            nullable: true
+            comment: ''
+            column: FECHA_FIN
+    manyToOne:
+        idFicha:
+            targetEntity: Ficha
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_FICHA:
+                    referencedColumnName: ID_FICHA
+            orphanRemoval: false
+        idUsuario:
+            targetEntity: Usuario
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_USUARIO:
+                    referencedColumnName: ID_USUARIO
+            orphanRemoval: false
+        idAmbiente:
+            targetEntity: Ambiente
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_AMBIENTE:
+                    referencedColumnName: ID_AMBIENTE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

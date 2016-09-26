@@ -1,0 +1,46 @@
+Ambientes\CidmBundle\Entity\CalendarioEvento:
+    type: entity
+    table: calendario_evento
+    indexes:
+        FK_RELATIONSHIP_21:
+            columns:
+                - ID_EVENTO
+    id:
+        idCalendario:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_CALENDARIO
+            generator:
+                strategy: IDENTITY
+    fields:
+        dia:
+            type: date
+            nullable: true
+            comment: ''
+            column: DIA
+        hora:
+            type: time
+            nullable: true
+            comment: ''
+            column: HORA
+        estado:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: ESTADO
+    manyToOne:
+        idEvento:
+            targetEntity: Evento
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_EVENTO:
+                    referencedColumnName: ID_EVENTO
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

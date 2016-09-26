@@ -1,0 +1,30 @@
+horario:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Horario:index" }
+
+horario_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Horario:show" }
+
+horario_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Horario:new" }
+
+horario_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Horario:create" }
+    requirements: { _method: post }
+
+horario_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Horario:edit" }
+
+horario_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Horario:update" }
+    requirements: { _method: post|put }
+
+horario_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Horario:delete" }
+    requirements: { _method: post|delete }

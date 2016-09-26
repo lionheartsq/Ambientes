@@ -1,0 +1,77 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Ficha
+ *
+ * @ORM\Table(name="ficha", indexes={@ORM\Index(name="FK_RELATIONSHIP_10", columns={"ID_NIVEL"})})
+ * @ORM\Entity
+ */
+class Ficha
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_FICHA", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idFicha;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="CODIGO", type="integer", nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="PROGRAMA", type="string", length=250, nullable=true)
+     */
+    private $programa;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="INSTRUCTOR_LIDER", type="integer", nullable=true)
+     */
+    private $instructorLider;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_INICIO_LECTIVA", type="date", nullable=true)
+     */
+    private $fechaInicioLectiva;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_FIN_LECTIVA", type="date", nullable=true)
+     */
+    private $fechaFinLectiva;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="FECHA_CIERRE_FICHA", type="date", nullable=true)
+     */
+    private $fechaCierreFicha;
+
+    /**
+     * @var \Ambientes\CidmBundle\Entity\NivelFormacion
+     *
+     * @ORM\ManyToOne(targetEntity="Ambientes\CidmBundle\Entity\NivelFormacion")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ID_NIVEL", referencedColumnName="ID_NIVEL")
+     * })
+     */
+    private $idNivel;
+
+
+}

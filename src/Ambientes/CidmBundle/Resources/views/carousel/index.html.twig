@@ -1,0 +1,62 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="page-banner">
+        <div class="container">
+            <div class="parallax-mask"></div>
+            <div class="section-name">
+                <h2>Carousel</h2>
+                <div class="short-text">
+                    <div class="sep l"></div>
+                    <h5>Inicio</h5>
+                    <div class="sep r"></div>
+                </div>
+            </div>
+        </div>
+    </div
+    <br><br>
+    <div class="container" style="background-color: #fff;">
+        <br><br>
+        <table class="table table-stripped table-bordered">
+            <thead class="">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Texto Principal</th>
+                    <th>Texto Segundario</th>
+                    <th>Publicado</th>
+                    <th>Orden</th>
+                    <th>Fechacreacion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody class="">
+                {% for carousel in carousels %}
+                    <tr>
+                        <td><img src="{{asset("/uploads/carousel/" ~ carousel.imagen) }}" class="img-responsive img-thumbnail" style="max-width: 300px;"/></td>
+                        <td>{{ carousel.textoPrincipal }}</td>
+                        <td>{{ carousel.textoSegundario }}</td>
+                        <td>{% if carousel.esPublicado %}Si{% else %}No{% endif %}</td>
+                        <td>{{ carousel.orden }}</td>
+                        <td>{% if carousel.fechaCreacion %}{{ carousel.fechaCreacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('carousel_show', { 'id': carousel.id }) }}">Mostrar</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('carousel_edit', { 'id': carousel.id }) }}">Editar</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <ul>
+            <li>
+                <a href="{{ path('carousel_new') }}">Crear Nueva Entrada</a>
+            </li>
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+      <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Regional Lista<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idregional</th>
+                <th>Codigo</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('regional_show', { 'id': entity.idRegional }) }}">{{ entity.idRegional }}</a></td>
+                <td>{{ entity.codigo }}</td>
+                <td>{{ entity.descripcion }}</td>
+                <td>
+                <ul>
+<a class="btn btn-lg btn-primary" id="boton4" href="{{ path('regional_show', { 'id': entity.idRegional }) }}" role="button">Ver</a>                        
+<a class="btn btn-lg btn-primary" id="boton3" href="{{ path('regional_edit', { 'id': entity.idRegional }) }}" role="button">Editar</a>                        
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+ <div id="prueba2">
+        <ul>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('regional_new') }}" role="button">Crear una nueva regional</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+       </ul>
+ </div>   
+      </div>
+    {% endblock %}

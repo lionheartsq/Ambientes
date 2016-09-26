@@ -1,0 +1,35 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+
+{% block body %}
+<!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">CIDM</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio</a></li>
+            <li><a href="http://fb.com" target="popup" onClick="window.open(this.href, this.target, 'width=420,height=350,top=150,left=500'); return false;">Acerca de</a></li>
+            <li><a href="http://fb.com" target="popup" onClick="window.open(this.href, this.target, 'width=420,height=350,top=150,left=500'); return false;">Desarrollo</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div><br><br>
+<div class="container">
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron" id="jumbotron">
+    <div class="row">
+          <div class="col-md-9">
+              <h2>Sistema de gestión de ambientes y control de ingreso de personas y equipos a las instalaciones.<br>
+              <br>C.I.D.M Floridablanca.</h2>
+        <p>
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('login')}}" role="button">Ingresar al sistema</a>
+        </p></div>
+        <div class="col-md-3" id="logo">
+            <img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="200"/>
+            </div>
+     </div>
+    </div>
+    </div> <!-- /container -->
+{% endblock %}

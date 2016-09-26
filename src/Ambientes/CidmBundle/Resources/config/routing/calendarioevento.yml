@@ -1,0 +1,30 @@
+calendarioevento:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:index" }
+
+calendarioevento_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:show" }
+
+calendarioevento_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:new" }
+
+calendarioevento_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:create" }
+    requirements: { _method: post }
+
+calendarioevento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:edit" }
+
+calendarioevento_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:update" }
+    requirements: { _method: post|put }
+
+calendarioevento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:CalendarioEvento:delete" }
+    requirements: { _method: post|delete }

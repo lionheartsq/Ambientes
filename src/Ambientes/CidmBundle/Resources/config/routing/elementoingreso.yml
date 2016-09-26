@@ -1,0 +1,30 @@
+elementoingreso:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:index" }
+
+elementoingreso_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:show" }
+
+elementoingreso_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:new" }
+
+elementoingreso_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:create" }
+    requirements: { _method: post }
+
+elementoingreso_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:edit" }
+
+elementoingreso_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:update" }
+    requirements: { _method: post|put }
+
+elementoingreso_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:ElementoIngreso:delete" }
+    requirements: { _method: post|delete }

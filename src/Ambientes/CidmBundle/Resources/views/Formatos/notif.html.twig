@@ -1,0 +1,14 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+        {% block stylesheets %}
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+ {% block title %}Responder notificaciones{% endblock %}
+    {% block body %}
+ <div id="prueba2">	        
+<a class="btn btn-lg btn-primary" id="boton" href="{{url('crud')}}" role="button">Regresar a inicio</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+ </div>
+    {% endblock %}

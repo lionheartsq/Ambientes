@@ -1,0 +1,73 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block body %}
+    <div class="page-banner">
+        <div class="container">
+            <div class="parallax-mask"></div>
+            <div class="section-name">
+                <h2>Carousel</h2>
+                <div class="short-text">
+                    <div class="sep l"></div>
+                    <h5>Nuevo</h5>
+                    <div class="sep r"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container" style="background-color: #fff;">
+        <div class="container-fluid"> 
+            {{ form_start(form, {"attr":{"id":"Carousel"}})}}
+            <div class="form-group">
+                <label class="col-md-3 control-label">Imagen</label>
+                <div class="col-md-9">
+                    {{form_widget(form.imagen,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Texto Principal</label>
+                <div class="col-md-9">
+                    {{form_widget(form.textoPrincipal,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Texto Secundario</label>
+                <div class="col-md-9">
+                    {{form_widget(form.textoSegundario,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Publicado?</label>
+                <div class="col-md-9">
+                    {{form_widget(form.esPublicado,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Orden</label>
+                <div class="col-md-9">
+                    {{form_widget(form.orden,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Fecha Publicacion</label>
+                <div class="col-md-9">
+                    {{form_widget(form.fechaCreacion,{"attr": {"class":"form-control"}})}}
+                </div>
+            </div><br><br>    
+            {#<div class="form-group text-right">
+                {{form_widget(form.submit,{ 'attr': {'class': 'btn btn-info'}})}} 
+            </div>#}
+            <ul>
+                <li>
+                    <div class="form-group text-left">
+                        <a class="btn btn-fresh" href="{{ path('carousel_index') }}">
+                            Volver a la lista
+                        </a>
+                        <input type="submit" class="btn boton-generico btn-success" value="Crear" />
+                    </div>
+                </li>
+            </ul>    
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+notificaciones:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:index" }
+
+notificaciones_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:show" }
+
+notificaciones_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:new" }
+
+notificaciones_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:create" }
+    requirements: { _method: post }
+
+notificaciones_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:edit" }
+
+notificaciones_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:update" }
+    requirements: { _method: post|put }
+
+notificaciones_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Notificaciones:delete" }
+    requirements: { _method: post|delete }

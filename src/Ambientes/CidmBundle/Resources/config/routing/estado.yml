@@ -1,0 +1,30 @@
+estado:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Estado:index" }
+
+estado_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Estado:show" }
+
+estado_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Estado:new" }
+
+estado_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Estado:create" }
+    requirements: { _method: post }
+
+estado_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Estado:edit" }
+
+estado_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Estado:update" }
+    requirements: { _method: post|put }
+
+estado_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Estado:delete" }
+    requirements: { _method: post|delete }

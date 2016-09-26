@@ -1,0 +1,30 @@
+evento:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Evento:index" }
+
+evento_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Evento:show" }
+
+evento_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Evento:new" }
+
+evento_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Evento:create" }
+    requirements: { _method: post }
+
+evento_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Evento:edit" }
+
+evento_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Evento:update" }
+    requirements: { _method: post|put }
+
+evento_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Evento:delete" }
+    requirements: { _method: post|delete }

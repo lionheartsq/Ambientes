@@ -1,0 +1,46 @@
+<?php
+
+namespace Ambientes\CidmBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Jornada
+ *
+ * @ORM\Table(name="jornada")
+ * @ORM\Entity
+ */
+class Jornada
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ID_JORNADA", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idJornada;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_INICIO", type="time", nullable=true)
+     */
+    private $horaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="HORA_FIN", type="time", nullable=true)
+     */
+    private $horaFin;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="DESCRIPCION", type="string", length=250, nullable=true)
+     */
+    private $descripcion;
+
+
+}

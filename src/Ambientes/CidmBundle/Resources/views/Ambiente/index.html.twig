@@ -1,0 +1,49 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+        {% block stylesheets %}
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
+        <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
+        {% endblock %}
+{% block body -%}
+  <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Ambiente Lista</h1></div>
+
+    <table class="table" width="100%">
+        <thead>
+            <tr>
+                <th>Idambiente</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Puestostrabajo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ambiente_show', { 'id': entity.idAmbiente }) }}">{{ entity.idAmbiente }}</a></td>
+                <td width="10%">{{ entity.codigo }}</td>
+                <td width="20%">{{ entity.nombre }}</td>
+                <td width="20%">{{ entity.descripcion }}</td>
+                <td width="10%">{{ entity.puestosTrabajo }}</td>
+                <td width="40%">
+                <ul>                    
+<a class="btn btn-lg btn-primary" id="boton4" href="{{ path('ambiente_show', { 'id': entity.idAmbiente }) }}" role="button">Ver</a>                        
+<a class="btn btn-lg btn-primary" id="boton3" href="{{ path('ambiente_edit', { 'id': entity.idAmbiente }) }}" role="button">Editar</a>                        
+                </ul>                
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div id="prueba2">
+        <ul>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ambiente_new') }}" role="button">Crear un nuevo ambiente</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+       </ul>
+ </div>   
+  </div>
+    {% endblock %}

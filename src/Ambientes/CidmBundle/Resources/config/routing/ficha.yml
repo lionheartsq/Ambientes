@@ -1,0 +1,30 @@
+ficha:
+    path:     /
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:index" }
+
+ficha_show:
+    path:     /{id}/show
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:show" }
+
+ficha_new:
+    path:     /new
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:new" }
+
+ficha_create:
+    path:     /create
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:create" }
+    requirements: { _method: post }
+
+ficha_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:edit" }
+
+ficha_update:
+    path:     /{id}/update
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:update" }
+    requirements: { _method: post|put }
+
+ficha_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AmbientesCidmBundle:Ficha:delete" }
+    requirements: { _method: post|delete }

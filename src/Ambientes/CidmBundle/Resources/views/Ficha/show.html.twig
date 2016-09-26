@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+   <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Ficha</h1></div>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Idficha</th>
+                <td>{{ entity.idFicha }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ entity.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Programa</th>
+                <td>{{ entity.programa }}</td>
+            </tr>
+            <tr>
+                <th>Instructorlider</th>
+                <td>{{ entity.instructorLider }}</td>
+            </tr>
+            <tr>
+                <th>Fechainiciolectiva</th>
+                <td>{{ entity.fechaInicioLectiva|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechafinlectiva</th>
+                <td>{{ entity.fechaFinLectiva|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Fechacierreficha</th>
+                <td>{{ entity.fechaCierreFicha|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+<div id="prueba2">
+        <ul class="record_actions">
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ficha_edit', { 'id': entity.idFicha }) }}" role="button">Editar</a>
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('ficha') }}" role="button">Regresar a la lista</a>                        
+<a class="btn btn-lg btn-primary" id="boton" href="{{ path('crud') }}" role="button">Regresar al inicio</a> 
+<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
+        </ul>
+ </div>   
+   </div>
+{% endblock %}

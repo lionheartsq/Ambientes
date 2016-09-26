@@ -1,0 +1,22 @@
+Ambientes\CidmBundle\Entity\EstadoUsuario:
+    type: entity
+    table: estado_usuario
+    id:
+        idEstadoUsuario:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID_ESTADO_USUARIO
+            generator:
+                strategy: IDENTITY
+    fields:
+        descripcion:
+            type: string
+            nullable: true
+            length: 250
+            fixed: false
+            comment: ''
+            column: DESCRIPCION
+    lifecycleCallbacks: {  }

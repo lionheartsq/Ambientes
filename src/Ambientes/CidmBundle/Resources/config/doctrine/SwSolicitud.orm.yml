@@ -1,0 +1,40 @@
+Ambientes\CidmBundle\Entity\SwSolicitud:
+    type: entity
+    table: sw_solicitud
+    indexes:
+        FK_RELATIONSHIP_6:
+            columns:
+                - ID_SOLICITUD
+        FK_RELATIONSHIP_7:
+            columns:
+                - ID_SOFTWARE
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            comment: ''
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    manyToOne:
+        idSolicitud:
+            targetEntity: Solicitud
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_SOLICITUD:
+                    referencedColumnName: ID_SOLICITUD
+            orphanRemoval: false
+        idSoftware:
+            targetEntity: Software
+            cascade: {  }
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                ID_SOFTWARE:
+                    referencedColumnName: ID_SOFTWARE
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
