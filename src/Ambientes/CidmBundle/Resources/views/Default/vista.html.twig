@@ -1,0 +1,20 @@
+{% extends 'AmbientesCidmBundle::layout.html.twig' %}
+ {% block title %}SOLICITUDES USUARIOS{% endblock %}
+    {% block body %}
+        <br><br>
+        <div class="container">
+              <div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading" id="cabecera"><h1>Usuarios<img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/></h1></div>
+
+{% if is_granted("ROLE_USER") %}
+    <div id="prueba2">	
+    <h2>Instructor {{ app.user }} en esta sección puede generar solicitudes</h2><br>
+{% endif %}
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('solinstructor')}}" role="button">Solicitud ambiente</a>
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('notinstructor')}}" role="button">Notificación novedades</a>
+          <a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
+              </div>
+              </div>     
+        </div>    
+              {% endblock %}
