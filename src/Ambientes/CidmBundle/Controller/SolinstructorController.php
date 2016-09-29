@@ -27,6 +27,7 @@ public function solinstructoraAction()
     {
         $em = $this->getDoctrine()->getManager();
         $db = $em->getConnection();
+        
 $fsolicitud=$_REQUEST['fsolicitud'];
 $finicio=$_REQUEST['finicio'];
 $ffin=$_REQUEST['ffin'];
@@ -46,19 +47,16 @@ $sql = "INSERT into solicitud(fecha_solicitud,fecha_inicio,fecha_fin,hora_inicio
         $params = array();
         $stmt2->execute($params);
         $po=$stmt2->fetchAll();
- 
-        // Mostrar todo
-        foreach ($po as $p) {
-            $salida=$p["nombre"];
-        }
-        echo "<div id='prueba2'>";
-        echo "<h2>Solicitud exitosa! Solicitó el software: $salida</h2>";
-        echo "</div>";     
+        
         $securityContext = $this->container->get('security.context');    
         if ($securityContext->isGranted('ROLE_USER')) {
-        return $this->render('AmbientesCidmBundle:Formatos:solinstructora.html.twig', array('solinstructora'));   
-        }
+ 
+            return $this->render('AmbientesCidmBundle:Formatos:solinstructora.html.twig', array(
+                     'entities' => $po,
+        )); 
         
+        }
+          
     }   
 
 

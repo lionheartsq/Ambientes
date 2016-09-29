@@ -14,48 +14,16 @@ class NotinstructorController extends Controller
 $query = "SELECT notificaciones.id_notificacion,usuario.nombre as nombre,notificaciones.descripcion,
     notificaciones.fecha_notificacion,notificaciones.fecha_inicio,notificaciones.fecha_fin,notificaciones.hora_inicio,
     notificaciones.hora_fin,tipo_notificacion.nombre as notificacion,ficha.codigo as ficha from notificaciones
-    join tipo_notificacion on notificaciones.id_notificacion=tipo_notificacion.id_tipo_notificacion join ficha
+    join tipo_notificacion on notificaciones.id_tipo_notificacion=tipo_notificacion.id_tipo_notificacion join ficha
     on ficha.id_ficha=notificaciones.id_ficha join usuario on notificaciones.id_usuario_gen=usuario.id_usuario
     where notificaciones.estado='0' order by notificaciones.fecha_inicio ASC";
         $stmt2 = $db->prepare($query);
         $params = array();
         $stmt2->execute($params);
-        $po=$stmt2->fetchAll();
-echo '<div class="panel-heading" id="cabecera"><h1>Atención de solicitudes </h1></div>';            
-echo  '<div>';	         
-   echo "<table class='table'><th>Instructor</th><th>Detalle notificacion</th><th>Radicada en</th>"
-        . "<th>Fecha inicial</th><th>Fecha final</th><th>Hora inicial</th><th>Hora final</th>"
-         . "<th>ficha</th><th>Notificacion</th><th>Cédula reemplazo</th><th>Estado</th><th>Responder</th>";
-        // Mostrar todo
-  
-        foreach ($po as $p) {
-            echo "<tr>";
-  echo "<form action='notcoord' method='post'>";    
-        
-            $id_notificacion=$p["id_notificacion"];
-            $id_usuario_gen=$p["nombre"];
-            $descripcion=$p["descripcion"];
-            $fecha_notificacion=$p["fecha_notificacion"];
-            $fecha_inicio=$p["fecha_inicio"];
-            $fecha_fin=$p["fecha_fin"];
-            $hora_inicio=$p["hora_inicio"];
-            $hora_fin=$p["hora_fin"];
-            $ficha=$p["ficha"];
-            $notificacion=$p["notificacion"];
-echo '<td>'.$id_usuario_gen.'</td><td>'.$descripcion.'</td><td>'.$fecha_notificacion.'</td>';
-echo '<td>'.$fecha_inicio.'</td><td>'.$fecha_fin.'</td><td>'.$hora_inicio.'</td><td>'.$hora_fin.'</td>';
-echo '<td>'.$ficha.'</td><td>'.$notificacion.'</td><td><input type="number" name="reem"></input></td><td>'
-        . '<select name="respuesta"><option value="0">Espera</option><option value="1">Aceptada</option><option value="2">Rechazada</option></select></td>';   
-echo "<input type='hidden' name='notificacion' value='$id_notificacion'/>";
-echo "<td><input class='btn btn-primary' type='submit' id='boton2' name='submit' value='Enviar'></td>";
-echo "</form></tr>";   
-
-        }
-        
-echo "</table>";     
-echo "</div>";        
-        return $this->render('AmbientesCidmBundle:Formatos:notif.html.twig', array('notif'));
-     
+        $po=$stmt2->fetchAll();           
+        return $this->render('AmbientesCidmBundle:Formatos:notif.html.twig', array(
+                     'entities' => $po,
+        ));      
     }
 
 
@@ -96,59 +64,36 @@ where solicitud.estado='0' order by solicitud.fecha_inicio ASC";
         $params = array();
         $stmt2->execute($params);
         $po2=$stmt2->fetchAll();
-
-echo '<div class="panel-heading" id="cabecera"><h1>Atención de solicitudes </h1></div>';            
-echo  '<div>';	     
-   echo "<table class='table'><th>Instructor</th><th>Radicada en</th><th>Fecha inicial</th>"
-        . "<th>Fecha final</th><th>Hora inicial</th><th>Hora final</th>"
-         . "<th>Numero personas</th><th>Ambientes adecuados</th><th>Estado</th><th>Responder</th>";
-        // Mostrar todo
-  
-        foreach ($po2 as $p) {
-            echo "<tr>";
-  echo "<form action='soliccoord' method='post'>";    
         
-            $id_solicitud=$p["id_solicitud"];
-            $id_usuario=$p["nombre"];
-            $fecha_solicitud=$p["fecha_solicitud"];
-            $fecha_inicio=$p["fecha_inicio"];
-            $fecha_fin=$p["fecha_fin"];
-            $hora_inicio=$p["hora_inicio"];
-            $hora_fin=$p["hora_fin"];
-            $capacidad=$p["numero_personas"];
-            $software=$p["id_software"];
+        $cont=0;
+        foreach ($po2 as $p2) {
+            
+            $capacidad=$p2["numero_personas"];
+            $software=$p2["id_software"];  
 
-$query = "SELECT ambiente.nombre,ambiente.id_ambiente,ambiente.puestos_trabajo,sw_ambiente.id_software from ambiente 
+$query = "SELECT ambiente.nombre as nombreambiente,ambiente.id_ambiente from ambiente 
  join sw_ambiente on ambiente.id_ambiente=sw_ambiente.id_ambiente join software on 
  software.id_software=sw_ambiente.id_software where software.id_software='$software' and ambiente.puestos_trabajo >= '$capacidad'";
         $stmt = $db->prepare($query);
         $params = array();
         $stmt->execute($params);
         $po=$stmt->fetchAll();
-        $flag=0;    
-echo '<td>'.$id_usuario.'</td><td>'.$fecha_solicitud.'</td>';
-echo '<td>'.$fecha_inicio.'</td><td>'.$fecha_fin.'</td><td>'.$hora_inicio.'</td><td>'.$hora_fin.'</td>';
-echo '<td>'.$capacidad.'</td><td><select name="amb">';
-            foreach ($po as $pa) {     
-            $id_ambiente=$pa["id_ambiente"];
-            $nambiente=$pa["nombre"];
-            $flag=$flag+1;
-            echo "<option value='$id_ambiente'>$nambiente</option>";
-                } 
-            if($flag==0){
-            echo "<option value='1'>No disponible</option>";
-            }    
-echo '</select></td><td><select name="respuesta"><option value="0">En espera</option><option value="1">Aceptada</option><option value="2">Rechazada</option></select></td>';   
-echo "<input type='hidden' name='notificacion' value='$id_solicitud'/>";
-echo "<td><input class='btn btn-primary' type='submit' id='boton2' name='submit' value='Enviar'></td>";
-echo "</form></tr>";   
-
+$nod='No disponible';
+$noid='0';
+     
+        if(empty($po)){    
+            $po[0] = array('nombreambiente'=>$nod,'id_ambiente'=>$noid);
         }
         
-echo "</table>";     
-echo "</div>";        
-        return $this->render('AmbientesCidmBundle:Formatos:solic.html.twig', array('solic'));
-     
+        $po2[$cont++]['opciones']=$po;
+}       
+/*      
+print_r($po2);
+*/
+        return $this->render('AmbientesCidmBundle:Default:vista.html.twig', array(
+                    'entities' => $po2,
+            ));
+
     }
 
         public function soliccoordAction()
@@ -213,19 +158,17 @@ values('$tipo','$ficha','$usuario','$descripcion','$fnot','$finicio','$ffin','$h
         $params = array();
         $stmt2->execute($params);
         $po=$stmt2->fetchAll();
- 
-        // Mostrar todo
-        foreach ($po as $p) {
-            $salida=$p["nombre"];
-        }
-        echo "<div id='prueba2'>";
-        echo "<h2>Notificación exitosa! Notificación por motivo: $salida</h2>";
-        echo "</div>";  
-             
-        $securityContext = $this->container->get('security.context');    
+       
+        $securityContext = $this->container->get('security.context'); 
+        
         if ($securityContext->isGranted('ROLE_USER')) {
-        return $this->render('AmbientesCidmBundle:Formatos:notinstructora.html.twig', array('notinstructora'));   
+ 
+            return $this->render('AmbientesCidmBundle:Formatos:notinstructora.html.twig', array(
+                     'entities' => $po,
+        )); 
+        
         }
+
         
     }   
 }

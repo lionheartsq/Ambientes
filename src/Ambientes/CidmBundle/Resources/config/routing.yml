@@ -206,5 +206,9 @@ notif:
 
 notcoord:
     pattern: /notcoord
-    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notcoord }      
+    defaults: { _controller: AmbientesCidmBundle:Notinstructor:notcoord }   
+    
+vista:
+    pattern: /vista
+    defaults: { _controller: AmbientesCidmBundle:Default:vista }       
   

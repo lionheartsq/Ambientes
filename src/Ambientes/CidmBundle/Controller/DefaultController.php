@@ -34,6 +34,46 @@ class DefaultController extends Controller
         */
         return $this->render('AmbientesCidmBundle:Default:test.html.twig', array('test'));
     }
+    
+        public function vistaAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $db = $em->getConnection();
+
+$query2 = "SELECT  solicitud.id_solicitud,solicitud.fecha_solicitud,solicitud.fecha_inicio,
+solicitud.fecha_fin,solicitud.hora_inicio,solicitud.hora_fin,solicitud.numero_personas,solicitud.id_software,
+usuario.nombre from solicitud join usuario on solicitud.id_usuario=usuario.id_usuario 
+where solicitud.estado='0' order by solicitud.fecha_inicio ASC";
+        $stmt2 = $db->prepare($query2);
+        $params = array();
+        $stmt2->execute($params);
+        $po2=$stmt2->fetchAll();
+        
+        $cont=0;
+        foreach ($po2 as $p2) {
+            
+            $capacidad=$p2["numero_personas"];
+            $software=$p2["id_software"];  
+
+$query = "SELECT ambiente.nombre as nombreambiente,ambiente.id_ambiente from ambiente 
+ join sw_ambiente on ambiente.id_ambiente=sw_ambiente.id_ambiente join software on 
+ software.id_software=sw_ambiente.id_software where software.id_software='$software' and ambiente.puestos_trabajo >= '$capacidad'";
+        $stmt = $db->prepare($query);
+        $params = array();
+        $stmt->execute($params);
+        $po=$stmt->fetchAll();
+         
+
+        $po2[$cont++]['opciones']=$po;
+}       
+      
+       
+        return $this->render('AmbientesCidmBundle:Default:vista.html.twig', array(
+                    'entities' => $po2,
+            ));
+     
+    }
 
     public function cargausuariosAction()
     {

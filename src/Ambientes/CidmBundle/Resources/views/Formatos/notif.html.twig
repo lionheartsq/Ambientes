@@ -4,9 +4,48 @@
         <link href="{{ asset('bundles/ambientescidm/css/bootstrap-responsive.css') }}" type="text/css" rel="stylesheet">
         <link href="{{ asset('bundles/ambientescidm/css/estilo.css') }}" type="text/css" rel="stylesheet">
         {% endblock %}
- {% block title %}Responder notificaciones{% endblock %}
-    {% block body %}
- <div id="prueba2">	        
+ {% block title %}Responder solicitudes{% endblock %}
+ {% block body %}
+ <div>	
+     
+<div class="panel-heading" id="cabecera"><h1>Atención de solicitudes </h1></div>           
+<div>	     
+<table class='table'><th>Instructor</th><th>Radicada en</th><th>Fecha inicial</th>
+<th>Fecha final</th><th>Hora inicial</th><th>Hora final</th><th>Numero personas</th>
+<th>Ambientes adecuados</th><th>Estado</th><th>Responder</th>
+                  {% for entity in entities %}
+<tr>
+<form action='soliccoord' method='post'>    
+<td>{{ entity.nombre }}</td><td>{{ entity.fecha_solicitud }}</td>
+<td>{{ entity.fecha_inicio }}</td><td>{{ entity.fecha_fin }}</td>
+<td>{{ entity.hora_inicio }}</td><td>{{ entity.hora_fin }}</td>
+<td>{{ entity.numero_personas }}</td>   
+<td><select name="amb">
+
+    {% if entity.opciones|length > 0 %}
+        
+            {% for opcion in entity.opciones %}
+               <option value="{{ opcion.id_ambiente }}">{{ opcion.nombreambiente }}</option>
+            {% endfor %}   
+               
+ {% endif %}
+
+    </select>    
+</td>        
+<td><select name="respuesta"><option value="0">En espera</option>
+        <option value="1">Aceptada</option><option value="2">Rechazada</option></select>
+</td>   
+<td><input class='btn btn-primary' type='submit' id='boton2' name='submit' value='Enviar'></td>
+<input type='hidden' name='notificacion' value={{ entity.id_solicitud }}/>
+                        {% endfor %}
+  
+</form>
+</tr>
+  
+</table>
+</div>        
+              
+ <div id="prueba2">              
 <a class="btn btn-lg btn-primary" id="boton" href="{{url('crud')}}" role="button">Regresar a inicio</a>
 <a class="btn btn-lg btn-primary" id="boton" href="{{url('logout')}}" role="button">Salir</a>
 <img src="{{ asset('/recursos/logob.png') }}" alt="logo" width="50" align="right"/>
